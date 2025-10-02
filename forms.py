@@ -38,12 +38,12 @@ class LoginForm(FlaskForm):
     submit = SubmitField("Log In")
 
 class RidePostForm(FlaskForm):
-    origin = StringField("From", validators=[DataRequired(), Length(max=120)])
-    destination = StringField("To", validators=[DataRequired(), Length(max=120)])
-    time_str = StringField("Time", validators=[DataRequired(), Length(max=80)])
-    days = StringField("Days", validators=[DataRequired(), Length(max=120)])
+    origin = StringField("From", validators=[DataRequired(), Length(max=40)])
+    destination = StringField("To", validators=[DataRequired(), Length(max=40)])
+    time_str = StringField("Time", validators=[DataRequired(), Length(max=40)])
+    days = StringField("Days", validators=[DataRequired(), Length(max=70)])
     seats = IntegerField("Seats", validators=[DataRequired(), NumberRange(min=1, max=5)])
-    notes = TextAreaField("Extra Notes", validators=[Length(max=1000)])
+    notes = TextAreaField("Extra Notes", validators=[Length(max=400)])
     submit = SubmitField("Post Ride")
 
 class ProfileForm(FlaskForm):
