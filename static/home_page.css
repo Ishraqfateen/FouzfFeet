@@ -105,11 +105,11 @@
   box-shadow: 0 6px 20px rgba(0,0,0,0.06);
   padding: 14px 16px;
   line-height: 1.45;
-  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+  transition: box-shadow .12s ease, border-color .12s ease;
 }
 
 .thread_card:hover{
-  transform: translateY(-2px);
+  
   box-shadow: 0 10px 26px rgba(0,0,0,0.10);
   border-color: rgba(0,0,0,0.12);
 }
