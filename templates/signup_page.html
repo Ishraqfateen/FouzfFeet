@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <title>Signup Page</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your original CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='signup_page.css') }}">
+</head>
+<body style="padding-top: 59px; background-color: rgb(255, 252, 244);">
+  <div class="header">
+    <div class="title">Fouz Fleet</div>
+  </div>
+  {% include "_flash.html" %}
+
+
+  <div class="bgimg1">
+    <img class="bgimage" src="{{ url_for('static',filename='images/20250802_1100_Retro Car Mobile Display_simple_compose_01k1m6cq07es49jvpnxccjq7b4.png') }}">
+  </div>
+  
+
+  <div class="signup_box">
+    <div class="text">Create Your Account</div>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div class="nme">Full Name</div>
+      {{ form.full_name(class="FN", placeholder="Enter your full name") }}
+      {% for e in form.full_name.errors %}<div class="field_error">{{ e }}</div>
+      {% endfor %}
+
+      <div class="eml">Email Address</div>
+      {{ form.email(class="email", placeholder="Enter your email address") }}
+      {% for e in form.email.errors %}<div class="field_error">{{ e }}</div>
+      {% endfor %}
+      <div class="subbox1">
+        <div class="pn">Phone Number</div>
+        <div class="db">Date of Birth</div>
+      </div>
+      <div class="subbox2">
+        {{ form.phone(class="pnumber", placeholder="Enter your phone number") }}
+        {% for e in form.phone.errors %}<div class="field_error">{{ e }}</div>
+        {% endfor %}
+        {{ form.dob(class="dob", placeholder="dob") }}
+      </div>
+
+      <div class="subbox3">
+        <div class="pswrd">Password</div>
+        <div class="cpswrd">Confirm Password</div>
+      </div>
+      <div class="subbox4">
+        {{ form.password(class="pass", placeholder="Create a password") }}
+        {% for e in form.password.errors %}<div class="field_error">{{ e }}</div>
+        {% endfor %}
+        {{ form.confirm(class="cpass", placeholder="Confirm password") }}
+        {% for e in form.confirm.errors %}<div class="field_error">{{ e }}</div>
+        {% endfor %}
+      </div>
+
+      {{ form.submit(class="ca") }}
+    </form>
+  </div>
+</body>
+</html>

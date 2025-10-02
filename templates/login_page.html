@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<head>
+  <title>Login Page</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your original CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='login_page.css') }}">
+</head>
+<body style="padding-top: 57px; margin: 0; background-color: #efd5ae;">
+  <div class="header">
+    <div class="title">Fouz Fleet</div>
+  </div>
+  {% include "_flash.html" %}
+
+
+  <div class="bg_img">
+    <img class="loginimg" src="{{ url_for('static',filename='images/20250801_1952_Colorful Ride Sharing Scene_simple_compose_01k1jjeveff5zv1ea6e03yt1q8.png') }}">
+  </div>
+  
+
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="login_box">
+      {{ form.email(class="eml", placeholder="Email") }}
+      {{ form.password(class="pswrd", placeholder="Password") }}
+      {{ form.submit(class="login", value="Log IN") }}
+    </div>
+    
+
+    <div class="alt">
+      Don't have an account?
+      <a href="{{ url_for('register') }}">Sign-Up</a>
+    </div>
+    
+    
+  </form>
+</body>
+</html>

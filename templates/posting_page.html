@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<head>
+  <title>Post a Ride</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your original CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='posting_page.css') }}">
+</head>
+<body style="padding-top: 59px;">
+  <input type="checkbox" id="sidebar-toggle" hidden>
+  <div class="header">
+    <label for="sidebar-toggle" class="hamburger">&#9776;</label>
+    <div class="title">Fouz Fleet</div>
+    <div class="right">{{ current_user.full_name }}</div>
+  </div>
+
+  <div class="sidebar">
+    <label for="sidebar-toggle" class="closebtn">&times;</label>
+    <a href="{{ url_for('home') }}">Home</a>
+    <hr>
+    <a href="{{ url_for('post_ride') }}">Post a Ride</a>
+    <hr>
+    <a href="{{ url_for('profile') }}">Profile</a><hr>
+    <a href="{{ url_for('logout') }}">Log out</a>
+    
+    
+  </div>
+  {% include "_flash.html" %}
+
+
+  <form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="post_box">
+      <div class="subbox1">
+        <div class="fm">From</div>
+        <div class="to">To</div>
+      </div>
+      <div class="subbox2">
+        {{ form.origin(class="frm", placeholder="e.g. CDU Casuarina") }}
+        {{ form.destination(class="too", placeholder="e.g. Darwin City") }}
+      </div>
+      <div class="subbox3">
+        <div class="tmee">Time</div>
+        <div class="dsz">Days</div>
+      </div>
+      <div class="subbox4">
+        {{ form.time_str(class="time", placeholder="Darwin time") }}
+        {{ form.days(class="dayz", placeholder="e.g Sunday,Monday") }}
+      </div>
+
+      <div class="seat">Seats</div>
+      <div class="seat_text">Seats Available:</div>
+      {{ form.seats(min=1, max=5) }}
+
+      <div class="notes">Extra Notes</div>
+      {{ form.notes(class="notttes", placeholder="Enter additional notes ") }}
+
+      <div style="display: flex;">
+        {{ form.submit(class="pst") }}
+      </div>
+    </div>
+  </form>
+</body>
+</html>

@@ -1,0 +1,168 @@
+.header{
+  display: flex;
+  background-color: rgb(31, 31, 31);
+  color: rgb(241, 241, 241);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: space-between;
+  height: 60px;
+  padding-left: 30px;
+  padding-right: 30px;
+}
+.title{
+  font-family: "Bangers", system-ui;
+  font-size: 44px;
+  font-weight: 400;
+  justify-content: center;
+  margin-left: 59px;
+}
+.right{
+  font-family: "Urbanist", sans-serif;
+  font-size: 19px;
+
+}
+.hamburger{
+  color: rgb(212, 212, 212);
+  background-color: rgb(31, 31, 31);
+  border: none;
+  font-size: 24px;
+}
+.hamburger:hover{
+  color: aliceblue;
+  cursor: pointer;
+}
+.sidebar {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 200px;
+  height: 100%;
+  background:#1e1e1e;
+  color: white;
+  padding-top: 60px;
+  transition: left 0.3s;
+  z-index: 10;
+  font-size: 18px;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 400;
+}
+.sidebar a {
+  display: block;
+  padding: 15px;
+  color: white;
+  text-decoration: none;
+}
+
+.sidebar a:hover {
+  background: #444;
+}
+#sidebar-toggle:checked ~ .sidebar {
+  left: 0;
+}
+#sidebar-toggle:checked ~ .main-content {
+  margin-left: 200px;
+  transition: margin-left 0.3s;
+}
+.closebtn {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 28px;
+  cursor: pointer;
+  color: white;
+}
+
+/* --- FEED LAYOUT (center under "Ride Threads") --- */
+.intro{
+  font-family: "Urbanist", system-ui, sans-serif;
+  font-weight: 800;
+  font-size: clamp(22px, 3vw, 36px);
+  text-align: center;           /* center the heading */
+  margin: 20px auto 16px;
+}
+
+.thread_list{
+  font-family: Arial, Helvetica, sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;          /* center the cards */
+  gap: 14px;
+  margin: 0 auto 48px;
+  padding: 0 16px;
+  max-width: 720px;             /* keeps the column nice and narrow */
+  width: 100%;
+}
+
+/* --- “twitter-like” card --- */
+.thread_card{
+  width: 100%;
+  background: #fff;
+  border: 1px solid rgba(0,0,0,0.08);
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+  padding: 14px 16px;
+  line-height: 1.45;
+  transition: transform .12s ease, box-shadow .12s ease, border-color .12s ease;
+}
+
+.thread_card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 26px rgba(0,0,0,0.10);
+  border-color: rgba(0,0,0,0.12);
+}
+
+/* title + meta */
+.thread_title{
+  font-weight: 800;
+  font-size: 20px;
+  margin-bottom: 2px;
+}
+.thread_meta{
+  color: #585858;
+  font-size: 14px;
+  margin-bottom: 10px;
+}
+
+/* notes body */
+.thread_notes{
+  background: #f7f7f8;
+  border-left: 3px solid #e5e7eb;
+  padding: 10px 12px;
+  border-radius: 10px;
+  white-space: pre-wrap;
+  margin-bottom: 8px;
+}
+
+/* footer line */
+.thread_footer{
+  margin-top: 6px;
+  font-size: 13px;
+  color: #6b7280;
+}
+
+/* optional: make the whole page look a bit cleaner */
+body{
+  background: #fafafa;
+}
+.flash_container{
+  position: fixed;
+  top: 66px; left: 0; right: 0;
+  display: flex; justify-content: center;
+  z-index: 9999; pointer-events: none;
+}
+.flash{
+  pointer-events: auto;
+  padding: 10px 14px; border-radius: 12px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.06);
+  background: #111827; color: #fff;
+}
+.flash-success { background:#0b7a28; }
+.flash-info    { background:#1f4b99; }
+.flash-warning { background:#9a6b00; }
+.flash-danger  { background:#9a1f1f; }
+

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<head>
+  <title>Home Page</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- Your original CSS -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='home_page.css') }}">
+</head>
+<body style="padding-top: 59px;">
+  <input type="checkbox" id="sidebar-toggle" hidden>
+  <div class="header">
+    <label for="sidebar-toggle" class="hamburger">&#9776;</label>
+    <div class="title">Fouz Fleet</div>
+    <div class="right">{{ current_user.full_name }}</div>
+  </div>
+
+  <div class="sidebar">
+    <label for="sidebar-toggle" class="closebtn">&times;</label>
+    <a href="{{ url_for('home') }}">Home</a><hr>
+    <a href="{{ url_for('post_ride') }}">Post a Ride</a><hr>
+    <a href="{{ url_for('profile') }}">Profile</a><hr>
+    <a href="{{ url_for('logout') }}">Log out</a>
+    
+  </div>
+  {% include "_flash.html" %}
+
+
+  <div class="intro">Ride Threads </div>
+
+  <!-- Simple feed; style these classes in your CSS -->
+  <div class="thread_list">
+    {% for p in posts %}
+      <div class="thread_card">
+        <div><strong>{{ p.origin }}</strong> → <strong>{{ p.destination }}</strong></div>
+        <div>Time: {{ p.time_str }} | Days: {{ p.days }} | Seats: {{ p.seats }}</div>
+        {% if p.notes %}
+          <div class="thread_notes">{{ p.notes }}</div>
+        {% endif %}
+        <div class="thread_contact">
+        Posted by: <strong>{{ p.author.full_name }}</strong>
+        · <a href="mailto:{{ p.author.email }}">{{ p.author.email }}</a>
+        · <a href="tel:{{ p.author.phone|replace(' ', '') }}">{{ p.author.phone }}</a>
+      </div>
+      </div>
+    {% else %}
+      <div class="thread_empty">No rides yet — be the first to post!</div>
+    {% endfor %}
+  </div>
+</body>
+</html>

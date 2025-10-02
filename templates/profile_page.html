@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<head>
+  <title>Profile</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Bangers&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
+
+  <!-- CSS: either create this file OR point to signup_page.css to reuse styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='profile_page.css') }}">
+</head>
+<body style="padding-top: 59px; background-color: rgb(255, 252, 244);">
+  <input type="checkbox" id="sidebar-toggle" hidden>
+  <div class="header">
+    <label for="sidebar-toggle" class="hamburger">&#9776;</label>
+    <div class="title">Fouz Fleet</div>
+    <div class="right">{{ current_user.full_name }}</div>
+  </div>
+
+  <div class="sidebar">
+    <label for="sidebar-toggle" class="closebtn">&times;</label>
+    <a href="{{ url_for('home') }}">Home</a><hr>
+    <a href="{{ url_for('post_ride') }}">Post a Ride</a><hr>
+    <a href="{{ url_for('profile') }}">Profile</a><hr>
+    <a href="{{ url_for('logout') }}">Log out</a>
+    
+  </div>
+  {% include "_flash.html" %}
+  {% with msgs = get_flashed_messages(with_categories=true) %}
+  {% if msgs %}
+    <div class="flash_container">
+      {% for category, msg in msgs %}
+        <div class="flash flash-{{ category }}">{{ msg }}</div>
+      {% endfor %}
+    </div>
+  {% endif %}
+  {% endwith %}
+
+  <div class="signup_box">
+    <img class="empty_pfp" src= "{{ url_for('static',filename='images/blank-profile-picture-png.webp') }}">
+    <div class="text">Update Contact Details</div>
+
+    <form method="POST">
+      {{ form.hidden_tag() }}
+
+      <div class="eml">Email Address</div>
+      {{ form.email(class="email", placeholder="Enter your email address") }}
+      {% for e in form.email.errors %}<div class="field_error">{{ e }}</div>
+      {% endfor %}
+
+      <div class="pn" style="margin-top:12px;">Phone Number</div>
+      {{ form.phone(class="pnumber", placeholder="Enter your phone number") }}
+      {% for e in form.phone.errors %}<div class="field_error">{{ e }}</div>
+      {% endfor %}
+
+      <div style="margin-top:16px;">
+        {{ form.submit(class="ca", value="Save Changes") }}
+      </div>
+    </form>
+  </div>
+</body>
+</html>

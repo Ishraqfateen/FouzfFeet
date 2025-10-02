@@ -1,0 +1,214 @@
+.header{
+  display: flex;
+  background-color: rgb(31, 31, 31);
+  color: rgb(241, 241, 241);
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  align-items: center;
+  justify-content: center;
+  height: 60px;
+}
+.title{
+  font-family: "Bangers", system-ui;
+  font-size: 44px;
+  font-weight: 400;
+  justify-content: center;
+  margin-left: 59px;
+}
+.signup_box{
+  padding-left: 20px;
+  padding-right: 20px;
+  padding-bottom: 45px;
+  padding-top: 50px;
+  border-style: solid;
+  display: inline-block;
+  position: fixed;
+  top: 90px;
+  left: 50%;
+  border-radius: 5px;
+  background-color: rgb(233, 233, 233)
+}
+.text{
+  font-size: 26px;
+  font-family: "Urbanist", sans-serif;
+  font-weight: 900;
+  margin-bottom: 15px;
+}
+.nme{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+}
+.FN{
+  display: flex;
+  height: 20px;
+  padding-left: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 450px;
+  
+}
+.eml{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+}
+.email{
+  display: flex;
+  height: 20px;
+  padding-left: 20px;
+  padding-top: 7px;
+  padding-bottom: 7px;
+  width: 450px;
+  
+
+}
+.subbox1{
+  display: flex;
+  flex-direction: row;
+  
+}
+.pnumber{
+  padding-left: 20px;
+  padding-top: 8px;
+  padding-right: 20px;
+  padding-bottom: 8px;
+  margin-right: 10px;
+  width: 190px;
+}
+.dob{
+  padding-bottom: 6px;
+  padding-top: 6px;
+  padding-left: 6px;
+  padding-right: 7px;
+}
+.subbox3{
+  display: flex;
+  flex-direction: row;
+  margin-top: 10px;
+  
+}
+.pn{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+  margin-right: 127px;
+
+}
+.db{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+}
+.pswrd{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+  margin-right: 165px;
+
+}
+.cpswrd{
+  font-size: 17px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: 600;
+  
+
+}
+.pass{
+  width: 205px;
+  padding-left: 20px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  margin-right: 11px;
+  
+}
+.cpass{
+  padding-left: 20px;
+  padding-bottom: 7px;
+  padding-top: 7px;
+  width: 200px;
+}
+input{
+  margin-top: 15px;
+  margin-bottom: 7px;
+  border-style: solid;
+  border-width: 1px;
+}
+.ca{
+  margin-top: 20px;
+  display: flex;
+  padding-left: 191px;
+  padding-right: 191px;
+  padding-bottom: 15px;
+  padding-top: 15px;
+  font-family:"urbanist";
+  font-weight: 900;
+  font-size: 17px;
+  color: rgb(235, 235, 235);
+  background-color: rgb(37, 37, 37);
+  border: none;
+  border-radius: 3px;
+  transition: opacity 0.2s;
+}
+.ca:hover{
+  opacity: 0.5;
+  cursor: pointer;
+}
+.ca:active{
+  opacity: 1;
+
+
+
+}
+.bgimage{
+  object-fit:cover;
+  vertical-align: middle;
+  padding-right: 670px;
+  width: 500px;
+  height: 560px;
+  
+  
+  
+}
+.bgimage1{
+  padding-right: 480px;
+  display: inline-block;
+  overflow: hidden;
+  width: 700px;
+}
+.field_error{
+  color: #b91c1c;
+  font-size: 13px;
+  margin: 6px 4px 0;
+}
+
+input.is-invalid, textarea.is-invalid{
+  border-color: #b91c1c;
+  box-shadow: 0 0 0 3px rgba(185,28,28,0.12);
+}
+.flash_container{
+  position: fixed;
+  top: 66px; left: 0; right: 0;
+  display: flex; justify-content: center;
+  z-index: 9999; pointer-events: none;
+}
+.flash{
+  pointer-events: auto;
+  padding: 10px 14px; border-radius: 12px;
+  font-size: 14px; font-weight: 600;
+  box-shadow: 0 6px 18px rgba(0,0,0,.12);
+  border: 1px solid rgba(0,0,0,.06);
+  background: #111827; color: #fff;
+}
+.flash-success { background:#0b7a28; }
+.flash-info    { background:#1f4b99; }
+.flash-warning { background:#9a6b00; }
+.flash-danger  { background:#9a1f1f; }
+
